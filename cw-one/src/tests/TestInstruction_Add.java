@@ -1,7 +1,5 @@
 package tests;
 
-
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,15 +25,20 @@ public class TestInstruction_Add {
 
 		m = new Machine();
 		m.setRegisters(new Registers());  // normally set by m.execute()
-		System.out.println(m.getRegisters()); // show empty registers before hand
+		
+		System.out.println("Register Initialization \n"+ m.getRegisters()); // show empty registers before hand
 		
 		testRegs = new Registers(); // set up mock register for test comparison
 				
 	}
 	
+	/**
+	 * Test for adding two positive numbers
+	 */
 	@Test
 	public void test1() {
 		
+		System.out.println("\nTest 1");
 		x = 5;
 		y = 6;
 		z = 11;
@@ -56,10 +59,12 @@ public class TestInstruction_Add {
 		Assert.assertTrue("Check Registers for Adding: ", testRegs.equals(m.getRegisters()));
 	}
 	
-	
+	/**
+	 * Test for adding two negative numbers
+	 */
 	@Test
 	public void test2() {
-		
+		System.out.println("\nTest 2");
 		x = -5;
 		y = -6;
 		z = -11;

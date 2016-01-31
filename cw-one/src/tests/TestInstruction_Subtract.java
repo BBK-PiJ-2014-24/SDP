@@ -7,6 +7,7 @@ import org.junit.Test;
 import sml.AddInstruction;
 import sml.Machine;
 import sml.Registers;
+import sml.SubtractInstruction;
 
 
 
@@ -37,7 +38,7 @@ public class TestInstruction_Subtract {
 	
 	
 	/**
-	 * Test for adding two positive numbers
+	 * Test for subtracting two positive numbers
 	 */
 	@Test
 	public void test1() {
@@ -45,7 +46,7 @@ public class TestInstruction_Subtract {
 		System.out.println("\nTest 1");
 		x = 5;
 		y = 6;
-		z = 11;
+		z = -1;
 		
 		testRegs.setRegister(regX, x); //  populate mock register
 		testRegs.setRegister(regY, y);
@@ -63,6 +64,33 @@ public class TestInstruction_Subtract {
 		Assert.assertTrue("Check Registers for Adding: ", testRegs.equals(m.getRegisters()));
 	}
 	
+	
+	/**
+	 * Test for subtracting two negative numbers
+	 */
+	@Test
+	public void test2() {
+		
+		System.out.println("\nTest 1");
+		x = -5;
+		y = -6;
+		z = 1;
+		
+		testRegs.setRegister(regX, x); //  populate mock register
+		testRegs.setRegister(regY, y);
+		testRegs.setRegister(regZ, z);
+		
+		m.getRegisters().setRegister(regX, x); // add inputs to registers
+		m.getRegisters().setRegister(regY, y);
+		
+		SubtractInstruction in1 = new SubtractInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
+		
+		System.out.println(in1.toString());
+		in1.execute(m);  // Execute Instruction
+		System.out.println(m.getRegisters());
+		
+		Assert.assertTrue("Check Registers for Adding: ", testRegs.equals(m.getRegisters()));
+	}
 	
 	
 }

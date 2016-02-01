@@ -39,8 +39,11 @@ public class TestTranslator {
 	@Test
 	public void test1(){
 		String outputL1 = "L1: add 1 + 2 to 3";  // Test Add Output
+		String outputL2 = "L2: sub 1 - 2 to 3"; // Test Sub Output
+		String outputL3 = "L3: mul 1 * 2 to 3"; // Test Sub Output
+		String output = outputL1 + "\n" + outputL2 + "\n" + outputL3 + "\n";
 		System.out.println("Here is the program; it has " + m.getProg().size() + " instructions.");
-        Assert.assertEquals("Test Correct Translator Output: ", outputL1, m.toString());
+        Assert.assertEquals("Test Correct Translator Output: ", output, m.toString());
 		
 		System.out.println(m);
 	//	ins1 = t.getInstruction("L1");

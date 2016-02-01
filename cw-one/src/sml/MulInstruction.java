@@ -1,7 +1,7 @@
 package sml;
 
 /**
- * This class is for the Adds Operator 
+ * This class is for the Multiply Operator 
  *
  * @author someone
  */
@@ -17,7 +17,7 @@ public class MulInstruction extends Instruction {
     }
 
     public MulInstruction(String label, int result, int op1, int op2) {
-        this(label, "add");
+        this(label, "mul");
         this.result = result;
         this.op1 = op1;
         this.op2 = op2;

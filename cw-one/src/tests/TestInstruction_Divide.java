@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sml.AddInstruction;
+import sml.DivInstruction;
 import sml.Machine;
 import sml.Registers;
 import sml.SubInstruction;
@@ -16,8 +17,7 @@ import sml.SubInstruction;
 
 
 public class TestInstruction_Divide {
-
-
+	
 	Machine m;
 	int x,y,z;
 	int regX, regY, regZ;
@@ -59,7 +59,7 @@ public class TestInstruction_Divide {
 		m.getRegisters().setRegister(regX, x); // add inputs to registers
 		m.getRegisters().setRegister(regY, y);
 		
-		SubInstruction in1 = new SubInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
+		DivInstruction in1 = new DivInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
 		
 		System.out.println(in1.toString());
 		in1.execute(m);  // Execute Instruction
@@ -87,7 +87,7 @@ public class TestInstruction_Divide {
 		m.getRegisters().setRegister(regX, x); // add inputs to registers
 		m.getRegisters().setRegister(regY, y);
 		
-		SubInstruction in1 = new SubInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
+		DivInstruction in1 = new DivInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
 		
 		System.out.println(in1.toString());
 		in1.execute(m);  // Execute Instruction

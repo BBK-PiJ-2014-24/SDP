@@ -36,6 +36,6 @@ public class BnzInstruction extends Instruction{
     
     @Override
     public String toString() {
-        return super.toString() + " return to line " + this.newLabel;
+        return super.toString() + " " +op1 + " " + this.newLabel;
     }
 }

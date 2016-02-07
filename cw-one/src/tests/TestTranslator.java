@@ -46,8 +46,9 @@ public class TestTranslator {
 		String outputL3 = "L3: mul 1 * 2 to 3"; // Test Mul Output
 		String outputL4 = "L4: div 1 / 2 to 3"; // Test Div Output
 		String outputL5 = "L5: out 4"; // Test Output
+		String outputL6 = "L6: bnz 2 L1";
 		String output = outputL1 + "\n" + outputL2 + "\n" + outputL3 + 
-				 "\n" + outputL4 + "\n" + outputL5 + "\n";
+				 "\n" + outputL4 + "\n" + outputL5 + "\n" + outputL6 + "\n";
 		System.out.println("Here is the program; it has " + m.getProg().size() + " instructions.");
         Assert.assertEquals("Test Correct Translator Output: ", output, m.toString());
 		

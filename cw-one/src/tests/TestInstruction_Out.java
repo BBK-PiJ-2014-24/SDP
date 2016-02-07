@@ -14,6 +14,7 @@ import sml.AddInstruction;
 import sml.DivInstruction;
 import sml.Machine;
 import sml.MulInstruction;
+import sml.OutInstruction;
 import sml.Registers;
 import sml.SubInstruction;
 
@@ -44,7 +45,7 @@ public class TestInstruction_Out {
 		m = new Machine();
 		m.setRegisters(new Registers());  // normally set by m.execute()
 		
-		System.out.println("Register Initialization \n"+ m.getRegisters()); // show empty registers before hand
+		//System.out.println("Register Initialization \n"+ m.getRegisters()); // show empty registers before hand
 		
 		testRegs = new Registers(); // set up mock register for test comparison
 		
@@ -72,10 +73,10 @@ public class TestInstruction_Out {
 		m.getRegisters().setRegister(regX, x); // add inputs to registers
 
 		
-		OutInstruction in1 = new OutInstruction("L1", regX);  // instanstiate Instruction 
+		OutInstruction in1 = new OutInstruction("L1", regX);  // instantiate Instruction 
+		in1.execute(m);
 		
-		
-		Assert.assertEquals("Check Register OutPut, for: ", "12", in1.);
+		Assert.assertEquals("Check Register OutPut, for: ", "12\n", outContent.toString() );
 	}
 	
 	@After

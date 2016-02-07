@@ -1,7 +1,9 @@
 package tests;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,6 +26,7 @@ public class TestTranslator {
 	ArrayList<Instruction> prog;
 	Instruction ins1;
 	
+	
 	@Before
 	public void setUp(){
 		m = new Machine();
@@ -34,14 +37,17 @@ public class TestTranslator {
 	
 	
 	/**
-	 * Test that Translator translates right operator.
+	 * Test that Translator translates right operators for +,-, /.
 	 */
 	@Test
 	public void test1(){
 		String outputL1 = "L1: add 1 + 2 to 3";  // Test Add Output
 		String outputL2 = "L2: sub 1 - 2 to 3"; // Test Sub Output
-		String outputL3 = "L3: mul 1 * 2 to 3"; // Test Sub Output
-		String output = outputL1 + "\n" + outputL2 + "\n" + outputL3 + "\n";
+		String outputL3 = "L3: mul 1 * 2 to 3"; // Test Mul Output
+		String outputL4 = "L4: div 1 / 2 to 3"; // Test Div Output
+		String outputL5 = "L5: out 4"; // Test Output
+		String output = outputL1 + "\n" + outputL2 + "\n" + outputL3 + 
+				 "\n" + outputL4 + "\n" + outputL4 + "\n";
 		System.out.println("Here is the program; it has " + m.getProg().size() + " instructions.");
         Assert.assertEquals("Test Correct Translator Output: ", output, m.toString());
 		
@@ -50,6 +56,8 @@ public class TestTranslator {
 	//	ins1.toString();
 		
 	}
+
+	
 	
 	
 }

@@ -24,10 +24,10 @@ public class test_CheckParameterList {
 	}
 	
 	/**
-	 * Tests constructor list similar to  + - * /
+	 * Tests constructor parameter list similar to  + - * /
 	 */
 	@Test
-	public void testAdd(){
+	public void testAddParams(){
 		constrList.add("int");
 		constrList.add("int");
 		constrList.add("int");
@@ -42,7 +42,25 @@ public class test_CheckParameterList {
 		boolean ans2 = t.checkParameterList(constrList, progList);
 		Assert.assertFalse(ans2);
 		
-		
-		
 	}
+	
+	/**
+	 * Tests constructor paramater list similar to bnz
+	 */
+	@Test
+	public void testBNZParams(){
+		constrList.add("int");
+		constrList.add("String");;
+		progList.add("1");
+		progList.add("L");
+
+		boolean ans1 = t.checkParameterList(constrList, progList);
+		Assert.assertTrue(ans1);
+		
+		progList.remove(1);
+		progList.add("1");
+		boolean ans2 = t.checkParameterList(constrList, progList);
+		Assert.assertFalse(ans2);
+	
+	}	
 }

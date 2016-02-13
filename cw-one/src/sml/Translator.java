@@ -33,7 +33,7 @@ public class Translator {
     // translate the small program in the file into lab (the labels) and
     // prog (the program)
     // return "no errors were detected"
-    public boolean readAndTranslate(Labels lab, ArrayList<Instruction> prog) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    public boolean readAndTranslate(Labels lab, ArrayList<Instruction> prog) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
 
         try (Scanner sc = new Scanner(new File(fileName))) {
             // Scanner attached to the file chosen by the user
@@ -77,7 +77,7 @@ public class Translator {
     // line should consist of an MML instruction, with its label already
     // removed. Translate line into an instruction with label label
     // and return the instruction
-    public Instruction getInstruction(String label) {
+    public Instruction getInstructionKeith(String label) {
         int s1; // Possible operands of the instruction
         int s2;
         int r;
@@ -125,15 +125,13 @@ public class Translator {
         return null;
     }
 
-    public Instruction myReflection(String label) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
-        int s1; // Possible operands of the instruction
-        int s2;
-        int r;
-        int x;
+    public Instruction getInstruction(String label) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
+     
         int numParams;  // number of parameters
         String labelParam ="";
-        String suffix = "Instruction.class";
+        
         ArrayList<String> progParameterList = new ArrayList<>();
+        Constructor<?> rightConstructor = null;
         
         // Collect the parameters in the instruction
         // -----------------------------------------
@@ -148,9 +146,10 @@ public class Translator {
         
         numParams = progParameterList.size();  // the number of parameters
         
-        // Create the Class Name, Collect its Constructors in a Class Array
-        // ---------------------------------------------------------------
-        String className = ins+suffix;
+        // Create the Class Name, Collect its Constructors in a Constructor Array
+        // ----------------------------------------------------------------------
+        
+        String className = ins;
         Class<?> theInstrClass = Class.forName(className); //Convert StringName to class;
         Constructor<?>[] theConstructors = theInstrClass.getConstructors();  // Array of Constructors
         
@@ -174,18 +173,42 @@ public class Translator {
 			
 		// Match the Constructor to the Correct Parameter Types
 		// -----------------------------------------------------
-				
-		for(Integer i : subsetConstrs.keySet()){   // For each constructor in the subset
+		Integer indexKey = null;  // the index for the correct constructor  		
+		for(Integer i : subsetConstrs.keySet()){   // For each constructor in the subset of constructors
 			Class<?>[] params = subsetConstrs.get(i);   // get its param list
-			ArrayList<String> stringParamList = new ArrayList<>();	
+			ArrayList<String> consStringParamList = new ArrayList<>();	
 				for(Class<?> p : params){
-					String parameterName = p.getSimpleName();
-					stringParamList.add(parameterName);
+					String parameterName = p.getSimpleName(); // convert constructor param List to a String List
+					consStringParamList.add(parameterName);
 					System.out.println(parameterName);
-				}
-			k++;	
-		}
+				} // end in loop
+			boolean test = checkParameterList(consStringParamList, progParameterList);  // check if right patram types
+			if(test){
+				indexKey = i;  // found the right constructor
+				rightConstructor = theConstructors[indexKey]; // Select the right Constructor from Array
+				break;
+			}
+		}// end out loop
+        if(indexKey == null){
+        	System.out.println("Could Not Find Constructor with correct signature");
+        	return null;
+        }
         
+        // Contruct the instance of 
+        // ------------------------
+        Object[] o = new Object[numParams];
+        o[0] = label;  // add the label parameter
+  
+        for(int i=1; i<numParams; i++){
+        	String s = progParameterList.get(i);
+        	char c = s.charAt(0);
+        	if(Character.isDigit(c))
+        		o[i] = scanInt();	
+        	else
+        		o[i] = line.trim();
+        	// build instance of 
+        	return (Instruction) rightConstructor.newInstance(o);
+        } // end loop
         return null;
     }
     
@@ -240,5 +263,17 @@ public class Translator {
         } catch (NumberFormatException e) {
             return Integer.MAX_VALUE;
         }
+    }
+    
+    /**
+     * Creates the ClassName from the label
+     */
+    public String classNameCreator(String instr){
+    	String suffix = "Instruction.class";
+    	String instr1 = instr.substring(0,1);
+    	String instr2 = instr.substring(1);
+    	instr1 = instr1.toUpperCase();
+    	String className = instr1 + instr2 + suffix;
+    	return className;
     }
 }

@@ -6,7 +6,7 @@ package sml;
  *
  */
 
-public class SubInstruction extends AddInstruction{
+public class SubInstruction extends Instruction{
 
     private int result;
     private int op1;
@@ -17,10 +17,10 @@ public class SubInstruction extends AddInstruction{
     }
     
     public SubInstruction(String label, int result, int op1, int op2) {
-        this(label, "subtract");
+        this(label, "sub");
         this.result = result;
         this.op1 = op1;
-        this.op2 = op2;  //  convert to negative
+        this.op2 = op2; 
     }
       
     @Override

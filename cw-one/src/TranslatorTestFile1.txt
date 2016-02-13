@@ -1,4 +1,6 @@
 L1 add 3 1 2
 L2 sub 3 1 2
-l3 mul 10 11 12
-l4 div 13 14 15
+L3 mul 3 1 2
+L4 div 3 1 2
+L5 out 4
+L6 bnz 2 L1 

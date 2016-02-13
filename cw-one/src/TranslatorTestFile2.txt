@@ -1,0 +1,5 @@
+L1 add 3 1 2
+L2 sub 3 1 2
+L3 mul 3 1 2
+L4 div 3 1 2
+L5 out 4

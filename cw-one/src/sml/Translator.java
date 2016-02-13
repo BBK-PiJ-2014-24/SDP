@@ -77,53 +77,53 @@ public class Translator {
     // line should consist of an MML instruction, with its label already
     // removed. Translate line into an instruction with label label
     // and return the instruction
-    public Instruction getInstructionKeith(String label) {
-        int s1; // Possible operands of the instruction
-        int s2;
-        int r;
-        int x;
-        String labelParam ="";
-
-        if (line.equals(""))
-            return null;
-
-        String ins = scan();
-        switch (ins) {
-            case "add":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-        	 	return new AddInstruction(label, r, s1, s2);
-            case "lin":
-                r = scanInt();
-                s1 = scanInt();
-                return new LinInstruction(label, r, s1);
-            case "sub" :
-            	r = scanInt();
-            	s1 = scanInt();
-            	s2 = scanInt();
-            	return new SubInstruction(label, r, s1, s2);  
-            case "mul" :
-            	r = scanInt();
-            	s1 = scanInt();
-            	s2 = scanInt();
-            	return new MulInstruction(label, r, s1, s2); 
-            case "div" :
-            	r = scanInt();
-            	s1 = scanInt();
-            	s2 = scanInt();
-            	return new DivInstruction(label, r, s1, s2); 
-            case "out" :
-            	s1 = scanInt();
-            	return new OutInstruction(label, s1);
-            case "bnz" :
-            	s1 = scanInt();
-            	labelParam = line.trim();
-            	return new BnzInstruction(label, s1, labelParam);
-        }
-
-        return null;
-    }
+//    public Instruction getInstructionKeith(String label) {
+//        int s1; // Possible operands of the instruction
+//        int s2;
+//        int r;
+//        int x;
+//        String labelParam ="";
+//
+//        if (line.equals(""))
+//            return null;
+//
+//        String ins = scan();
+//        switch (ins) {
+//            case "add":
+//                r = scanInt();
+//                s1 = scanInt();
+//                s2 = scanInt();
+//        	 	return new AddInstruction(label, r, s1, s2);
+//            case "lin":
+//                r = scanInt();
+//                s1 = scanInt();
+//                return new LinInstruction(label, r, s1);
+//            case "sub" :
+//            	r = scanInt();
+//            	s1 = scanInt();
+//            	s2 = scanInt();
+//            	return new SubInstruction(label, r, s1, s2);  
+//            case "mul" :
+//            	r = scanInt();
+//            	s1 = scanInt();
+//            	s2 = scanInt();
+//            	return new MulInstruction(label, r, s1, s2); 
+//            case "div" :
+//            	r = scanInt();
+//            	s1 = scanInt();
+//            	s2 = scanInt();
+//            	return new DivInstruction(label, r, s1, s2); 
+//            case "out" :
+//            	s1 = scanInt();
+//            	return new OutInstruction(label, s1);
+//            case "bnz" :
+//            	s1 = scanInt();
+//            	labelParam = line.trim();
+//            	return new BnzInstruction(label, s1, labelParam);
+//        }
+//
+//        return null;
+//    }
 
     public Instruction getInstruction(String label) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
      

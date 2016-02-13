@@ -144,7 +144,7 @@ public class Translator {
         	progParameterList.add(scan());
         }
         
-        numParams = progParameterList.size();  // the number of parameters
+        numParams = progParameterList.size() + 1;  // the number of Prog parameters + label
         
         // Create the Class Name, Collect its Constructors in a Constructor Array
         // ----------------------------------------------------------------------
@@ -159,11 +159,12 @@ public class Translator {
         
 		int k =0;
 		for (Constructor<?> c : theConstructors){                 // Loop through Constructor List
-			System.out.println("Constructor " + k + " Parameters");
+			//System.out.println("Constructor [" + k +"] Parameters");
 			Class<?>[] consParams = theConstructors[k].getParameterTypes(); // get the Cons Parameters
 				if(consParams.length == numParams){     // Find Constructor with the right number of Paramaetrs
 					subsetConstrs.put(k,consParams);   // Collect the Constructor list index and it's parameter list
 				}
+			k++;
 		}
 		
 		if(subsetConstrs.isEmpty()){
@@ -180,7 +181,7 @@ public class Translator {
 				for(Class<?> p : params){
 					String parameterName = p.getSimpleName(); // convert constructor param List to a String List
 					consStringParamList.add(parameterName);
-					System.out.println(parameterName);
+					//System.out.println(parameterName);
 				} // end in loop
 			boolean test = checkParameterList(consStringParamList, progParameterList);  // check if right patram types
 			if(test){
@@ -200,16 +201,15 @@ public class Translator {
         o[0] = label;  // add the label parameter
   
         for(int i=1; i<numParams; i++){
-        	String s = progParameterList.get(i);
+        	String s = progParameterList.get(i-1);
         	char c = s.charAt(0);
         	if(Character.isDigit(c))
-        		o[i] = scanInt();	
+        		o[i] = Integer.parseInt(s);	
         	else
-        		o[i] = line.trim();
+        		o[i] = s.trim();
         	// build instance of 
-        	return (Instruction) rightConstructor.newInstance(o);
         } // end loop
-        return null;
+        return (Instruction) rightConstructor.newInstance(o);
     }
     
     /**
@@ -220,13 +220,14 @@ public class Translator {
      */
     public boolean checkParameterList(List<String> constrList, List<String> progList ){
     	
-    	for(int s=0; s < constrList.size(); s++){   // each parameter in the con's parameter list 
+    	constrList.remove(0); // get rid of the label
+    	for(int s=0; s < progList.size(); s++){   // each parameter in the con's parameter list 
     		String consParam = constrList.get(s); 
     		String progParam = progList.get(s);
     		char c = progParam.charAt(0);
     		if(consParam == "int" && !Character.isDigit(c)) // if cons param an int, check the prog param is a digit
     			return false;
-    		if(consParam == "String" && Character.isDigit(c)) // if cons param a String, check the prog param is a digit
+    		if(consParam.equals("String") && Character.isDigit(c)) // if cons param a String, check the prog param is a digit
     			return false;
     	}
     	return true;

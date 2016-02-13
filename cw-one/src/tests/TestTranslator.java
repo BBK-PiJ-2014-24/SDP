@@ -1,6 +1,7 @@
 package tests;
 
 import java.io.ByteArrayOutputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 import org.junit.After;
@@ -28,7 +29,7 @@ public class TestTranslator {
 	
 	
 	@Before
-	public void setUp(){
+	public void setUp() throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException{
 		m = new Machine();
 		t = new Translator(fileName);	
 		t.readAndTranslate(m.getLabels(), m.getProg());
@@ -47,14 +48,13 @@ public class TestTranslator {
 		String outputL4 = "L4: div 1 / 2 to 3"; // Test Div Output
 		String outputL5 = "L5: out 4"; // Test Output
 		String outputL6 = "L6: bnz 2 L1";
-		String output = outputL1 + "\n" + outputL2 + "\n" + outputL3 + 
-				 "\n" + outputL4 + "\n" + outputL5 + "\n" + outputL6 + "\n";
+		String output = outputL1 + "\n" + outputL2 + "\n" + outputL3 
+				+ "\n" + outputL4 + "\n" + outputL5 + "\n" + outputL6 + "\n";
 		System.out.println("Here is the program; it has " + m.getProg().size() + " instructions.");
         Assert.assertEquals("Test Correct Translator Output: ", output, m.toString());
 		
 		System.out.println(m);
-	//	ins1 = t.getInstruction("L1");
-	//	ins1.toString();
+	
 		
 	}
 

@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import sml.AddInstruction;
 import sml.Machine;
+import sml.MulInstruction;
 import sml.Registers;
 
 
@@ -51,7 +52,7 @@ public class TestInstruction_Multiply {
 		m.getRegisters().setRegister(regX, x); // add inputs to registers
 		m.getRegisters().setRegister(regY, y);
 		
-		AddInstruction in1 = new MulInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
+		MulInstruction in1 = new MulInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
 		
 		System.out.println(in1.toString());
 		in1.execute(m);  // Execute Instruction
@@ -77,7 +78,7 @@ public class TestInstruction_Multiply {
 		m.getRegisters().setRegister(regX, x); // add inputs to registers
 		m.getRegisters().setRegister(regY, y);
 		
-		AddInstruction in1 = new AddInstruction("L1", regZ,regX, regY);  // test method
+		MulInstruction in1 = new MulInstruction("L1", regZ,regX, regY);  // test method
 		
 		System.out.println(in1.toString());
 		in1.execute(m);

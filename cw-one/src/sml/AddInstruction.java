@@ -1,7 +1,7 @@
 package sml;
 
 /**
- * This class ....
+ * This class is for the Adds Operator 
  *
  * @author someone
  */

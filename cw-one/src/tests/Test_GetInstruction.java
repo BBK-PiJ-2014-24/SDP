@@ -35,6 +35,9 @@ public class Test_GetInstruction {
      
         Class<?> myGuess= Class.forName(className); 
         Assert.assertEquals(theInstrClass, myGuess );
+        
+   
+        
 
 	}
 	

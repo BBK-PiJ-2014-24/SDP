@@ -56,7 +56,7 @@ public class TestReflections {
 	}
 	
 	/**
-	 * Test for simple reflection and Instantiation, given class, BUT NOT Constructor (Have to find it!!)
+	 * Test for simple reflection and Instantiation, given class and Constructor, but unknown parameters
 	 */
 	
 	@Test

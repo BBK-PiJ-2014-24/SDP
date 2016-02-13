@@ -7,8 +7,12 @@ import org.junit.Test;
 import sml.AddInstruction;
 import sml.Machine;
 import sml.Registers;
-import sml.SubtractInstruction;
-
+import sml.SubInstruction;
+/**
+ * Tests for Subtract Instruction
+ * @author snewnham
+ *
+ */
 
 
 public class TestInstruction_Subtract {
@@ -55,7 +59,7 @@ public class TestInstruction_Subtract {
 		m.getRegisters().setRegister(regX, x); // add inputs to registers
 		m.getRegisters().setRegister(regY, y);
 		
-		SubtractInstruction in1 = new SubtractInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
+		SubInstruction in1 = new SubInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
 		
 		System.out.println(in1.toString());
 		in1.execute(m);  // Execute Instruction
@@ -83,7 +87,7 @@ public class TestInstruction_Subtract {
 		m.getRegisters().setRegister(regX, x); // add inputs to registers
 		m.getRegisters().setRegister(regY, y);
 		
-		SubtractInstruction in1 = new SubtractInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
+		SubInstruction in1 = new SubInstruction("L1", regZ,regX, regY);  // instanstiate Instruction 
 		
 		System.out.println(in1.toString());
 		in1.execute(m);  // Execute Instruction

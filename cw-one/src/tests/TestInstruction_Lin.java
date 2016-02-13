@@ -33,7 +33,7 @@ public class TestInstruction_Lin {
 		m = new Machine();
 		m.setRegisters(new Registers());  // normally set by m.execute()
 		
-		System.out.println("Register Initialization \n"+ m.getRegisters()); // show empty registers before hand
+//		System.out.println("Register Initialization \n"+ m.getRegisters()); // show empty registers before hand
 		
 		testRegs = new Registers(); // set up mock register for test comparison
 				

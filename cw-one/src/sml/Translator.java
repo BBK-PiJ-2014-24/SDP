@@ -149,7 +149,7 @@ public class Translator {
         // Create the Class Name, Collect its Constructors in a Constructor Array
         // ----------------------------------------------------------------------
         
-        String className = ins;
+        String className = classNameCreator(ins);
         Class<?> theInstrClass = Class.forName(className); //Convert StringName to class;
         Constructor<?>[] theConstructors = theInstrClass.getConstructors();  // Array of Constructors
         
@@ -269,11 +269,12 @@ public class Translator {
      * Creates the ClassName from the label
      */
     public String classNameCreator(String instr){
-    	String suffix = "Instruction.class";
+    	String prefix = "sml.";
+    	String suffix = "Instruction";
     	String instr1 = instr.substring(0,1);
     	String instr2 = instr.substring(1);
     	instr1 = instr1.toUpperCase();
-    	String className = instr1 + instr2 + suffix;
+    	String className = prefix + instr1 + instr2 + suffix;
     	return className;
     }
 }

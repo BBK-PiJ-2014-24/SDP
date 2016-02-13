@@ -12,6 +12,7 @@ import org.junit.runners.Suite.SuiteClasses;
 				TestInstruction_Lin.class,
 				TestInstruction_Bnz.class,
 				TestReflections.class,
+				Test_ClassNameCreator.class,
 				TestInstruction_Out.class
 				
 				

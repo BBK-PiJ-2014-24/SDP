@@ -1,5 +1,6 @@
 package sml;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 /*
@@ -31,10 +32,13 @@ public class Machine {
 
     public Machine() {
     }
-
-    public static void main(String[] args) {
-
+    
+    public static void main(String[] args) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
+    	
         Machine m = new Machine();
+        //System.out.println("arg length " + args.length);
+        
+        
         Translator t = new Translator(args[0]);
         t.readAndTranslate(m.getLabels(), m.getProg());
 

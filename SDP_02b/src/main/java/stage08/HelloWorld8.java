@@ -1,6 +1,6 @@
 package stage08;
 /**
- * DI with XML
+ * DI into Constructor with XML 
  */
 import java.io.File;
 
@@ -21,8 +21,8 @@ public class HelloWorld8 {
 	}
 	
 	private static BeanFactory getMyBeanFactory() throws Exception{
-		
-		BeanFactory factory = new ClassPathXmlApplicationContext("stage08/beans.xml"); //path = packageName.file.xml
+		//path = packageName.file.xml
+		BeanFactory factory = new ClassPathXmlApplicationContext("stage08/beans.xml"); 
 		return factory;
 		
 	}

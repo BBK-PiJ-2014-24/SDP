@@ -1,5 +1,7 @@
 package stage08;
-
+/**
+ * DI with XML
+ */
 import java.io.File;
 
 import org.springframework.beans.factory.BeanFactory;
@@ -9,7 +11,7 @@ public class HelloWorld8 {
 
 	public static void main(String[] args) throws Exception {
 		
-		File file = new File("src/main/resources/beans.xml");
+		File file = new File("/Users/snewnham/git/exercises/SDP_02b/src/main/java/stage08/beans.xml");
 		System.out.println("Does this File Exist: " + file.exists());
 		
 		BeanFactory factory = getMyBeanFactory();
@@ -20,7 +22,7 @@ public class HelloWorld8 {
 	
 	private static BeanFactory getMyBeanFactory() throws Exception{
 		
-		BeanFactory factory = new ClassPathXmlApplicationContext("/beans.xml");
+		BeanFactory factory = new ClassPathXmlApplicationContext("stage08/beans.xml"); //path = packageName.file.xml
 		return factory;
 		
 	}

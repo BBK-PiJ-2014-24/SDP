@@ -9,10 +9,10 @@ public class StandardOutMessageRenderer implements MessageRenderer {
 	
 	private MessageProvider messageProvider = null;
 	
-	// setter
+	// setter  - THIS IS THE SETTER FOR INJECTION!!!
 	// ------
 	public void setMessageProvider(MessageProvider theMsg){
-		this.messageProvider = theMsg;
+		this.messageProvider = theMsg ;  // <= messageProvider is the <property> name =
 	}
 	
 	// getter

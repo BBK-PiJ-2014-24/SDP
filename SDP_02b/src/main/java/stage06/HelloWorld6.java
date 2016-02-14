@@ -19,10 +19,10 @@ public class HelloWorld6 {
 
 	public static void main(String[] args) throws Exception {
 		
-		BeanFactory factory = getMyBeanFactory();
+		BeanFactory myBeanfactory = getMyBeanFactory();
 		
-		MessageProvider mp = (MessageProvider)factory.getBean("provider");
-		MessageRenderer mr = (MessageRenderer) factory.getBean("renderer");
+		MessageProvider mp = (MessageProvider)myBeanfactory.getBean("provider");
+		MessageRenderer mr = (MessageRenderer) myBeanfactory.getBean("renderer");
 		
 		mr.setMessageProvider(mp);
 		mr.render();
@@ -30,6 +30,7 @@ public class HelloWorld6 {
 	}
 	
 	// Default bean Factory
+	// the def reader obj connects the factory to the file 
 	public static BeanFactory getMyBeanFactory() throws Exception{
 		
 		// Config the Dependency File
@@ -44,7 +45,7 @@ public class HelloWorld6 {
 		// Make a Definition Reader that connects to the factory (Wiring)
 		PropertiesBeanDefinitionReader defReader = new PropertiesBeanDefinitionReader(factory);
 		
-		// Now Connect the Definition Reader to the Dependency File (Wiring)
+		// NOW Connect the Definition Reader to the Dependency File (Wiring)
 		defReader.registerBeanDefinitions(props);
 		
 		// return the factory

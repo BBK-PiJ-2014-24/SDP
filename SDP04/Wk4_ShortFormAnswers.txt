@@ -1,0 +1,18 @@
+1. What are the values and types of the following Scala literals
+(a) 42: Int, 42
+(b) true: boolean, true
+(c) 123L: Long, 123
+(d) 42.0: Double, 42.0
+
+2. What is the difference between the following literals?
+(a) 'a' - Char, a
+(b) "a" - String, a
+
+3. What is the difference between the following expressions?
+(a) "Hello world"  - String
+(b) println("Hello world") - Object
+
+4. What is the type and value of the following literal? Try writing it using the REPL or in Scal worksheet and see what happens!
+'Hello world!'
+
+5. What are the types and values of the following conditionals?

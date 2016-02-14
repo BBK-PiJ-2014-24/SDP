@@ -22,7 +22,7 @@ public class HelloWorld7 {
 		BeanFactory factory = getMyBeanFactory();
 		
 		//MessageProvider mp = IS DONE AUTOMATICALLY IN THE FACTORY
-		MessageRenderer mr = (MessageRenderer) factory.getBean("renderer");
+		MessageRenderer mr = (MessageRenderer) factory.getBean("renderer"); // mp is referred to by "renderer"
 		
 		//mr.setMessageProvider -  IS ALREADY IN INJECTED INTO THE RENDERER
 		mr.render();

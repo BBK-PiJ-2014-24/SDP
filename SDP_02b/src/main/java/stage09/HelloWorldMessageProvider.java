@@ -10,7 +10,7 @@
 public class HelloWorldMessageProvider implements MessageProvider {
 
 	public String getMessage(){    
-		return "Hello World - USING THE SPRING FACTORY + DEPENDENCY INJECTION with XML!!";
+		return "Hello World - USING THE SPRING FACTORY + DEPENDENCY INJECTION via a SETTER with XML!!";
 	}
 	
 	

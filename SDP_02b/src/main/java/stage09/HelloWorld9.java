@@ -14,8 +14,8 @@ public class HelloWorld9 {
 	
 	public static BeanFactory getMyBeanFactory(){
 		
-		BeanFactory factory = new ClassPathXmlApplicationContext("/beans2.xml");
-		
+		BeanFactory factory = new ClassPathXmlApplicationContext("/stage09/beansForSetterInj.xml");
+		return factory;
 	}
 	
 	

@@ -9,9 +9,16 @@
 
 public class HelloWorldMessageProvider implements MessageProvider {
 
-	public String getMessage(){    
-		return "Hello World - USING THE SPRING FACTORY + DEPENDENCY INJECTION with XML!!";
+	// HERE WE ARE INJECTING VIA THE CONSTRUCTOR!!!!
+	private String msg;
+	
+	public HelloWorldMessageProvider(String msg){
+		this.msg = msg;
 	}
 	
+	public String getMessage(){    
+		return "Hello World - USING THE SPRING FACTORY + DEPENDENCY INJECTION with XML!! AND here is someting  extra injected via xml: \n" + this.msg;
+	}
+
 	
 }

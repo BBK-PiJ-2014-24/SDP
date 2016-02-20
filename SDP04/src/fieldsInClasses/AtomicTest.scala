@@ -5,7 +5,7 @@ unit testing early in the learning curve.
 For use in a script or App, include:
 import com.atomicscala.AtomicTest._
 */
-package atomicscala
+package fieldsInClasses
 
 import java.io.FileWriter
 

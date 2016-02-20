@@ -9,8 +9,22 @@ class Cup {
     percentFull += increase
     if(percentFull > max){
       percentFull = max
-    } 
+    }
+    if(percentFull < 0)
+      percentFull = 0
      percentFull
   }
+  
+  // setter
+  def setPercentFull(pf : Int) : Unit = {
+    this.percentFull = pf
+  }
+  
+  // getter
+  def getPercentFull() : Int = {
+    this.percentFull
+  }
+  
+  
   
 }

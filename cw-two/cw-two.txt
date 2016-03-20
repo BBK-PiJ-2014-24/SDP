@@ -1,6 +1,6 @@
 
 Code Partner: Mark Kingsbury
-Bitbucket: bbk_2016_sdp/cw-two
+Bitbucket: KingsburyData/bbk_2016_sdp/cw-two
 
 
 https://bitbucket.org/KingsburyData/bbk_2016_sdp/src/d4d7a4cffca2b904be3aba05f0c619b8b5acbe4c/cw-two/?at=master

@@ -1,0 +1,12 @@
+7.
+(a) What is the Facade Pattern?
+(b) When, and why, would you use the Facade Pattern?
+
+a) Creates a higher level, unified interface for a set of interfaces in a system .
+b) Used to help simplify the interface of a busy API 
+
+
+
+9. When should one make use of the Bridge Design Pattern?
+
+You should use Bridge when:  i) an inteface changes frequently; and ii) its implementations changes functionality as well. 

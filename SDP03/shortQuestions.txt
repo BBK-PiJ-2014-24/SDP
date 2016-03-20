@@ -1,0 +1,83 @@
+1. Write down three differences between abstract classes and interfaces in Java 8. Provide examples to illustrate your answer.
+
+i. Abstract classes can have state associated with them. Theycan have  static, final  or static final  variable with any access specifier. Interfaces cannot have state associated with them, unless it is static final (constant) variable
+
+ii. Abstract class can extend only one class or one abstract class at a time.  Interface can extend any number of interfaces at a time (i.e. multiple Inheritance)
+
+iii. Abstract class can have protected, public and public abstract methods. Interface can have only public abstract methods.
+
+
+(N.b. Java8 interfaces can now have static and default methods)
+
+2. Are the following true or false?
+(a) Every interface must have at least one method.
+(b) An interface can declare instance fields that an implementing class must also declare.
+(c) Although you can’t instantiate an interface, an interface definition can declare constructor methods that require an implementing class to provide constructors with given signatures.
+Provide examples to illustrate your answers.
+
+a) FALSE - can be empty
+
+b) FALSE - can't contain fields
+
+c) FALSE
+
+
+3. Provide an example of an interface with methods that do not imply responsibility on the part of the implementing class to take action on behalf of the caller or to return a value.
+
+
+public interface BuggerAll(){
+
+	default void doNothing(){}
+	default void takeItEasy(){}
+	default void chill() {}
+}
+
+
+4. What is the value of a stub class like WindowAdapter which is composed of methods that do nothing?
+
+Allows you to create a mock object to do testing against.
+
+
+5. How can you prevent other developers from constructing new instances of your class? Provide appropriate examples to illustrate your answer.
+
+Adopt the Singleton Strategy.
+
+6. Why might you decide to lazy-initialise a singleton instance rather than initialise it in its field declaration? Provide examples of both approaches to illustrate your answer.
+
+You implement a lazy-initialize Singleton if it will be used with resource-intensive objects. A Lazy singleton will only be instantiated at the time it is required.
+
+7. Using the java.util.Observable and java.util.Observer classes/interfaces show how one object can be informed of updates to another object.
+
+Subject (called MySubject):	           
+			
+	notifyObservers()  	   
+
+Object:		
+	update(Observable obs){
+		if(obs isInstance of MySubject)
+		MySubject s = (MySubject)  obs
+		s.get(Data)
+	   	
+	}	
+
+8. “The Observer pattern supports the MVC pattern”. State if this statement is true or false and support your answer by use of an appropriate example.
+
+True. 
+
+Subject/Observable: Model
+Observer:  View
+Control: Another class can control the state of the Subject, which triggers a notify and is then viewed in the Observer.
+
+9. Provide examples of two commonly used Java methods that return a new object.
+
+Factory Method, Abstract Factory Method, also Builder.
+
+10. What are the signs that a Factory Method is at work?
+
+Instantiation of a class is derogated to another class.
+
+11. If you want to direct output to System.out instead of to a file, you can create a Writer object that directs its output to System.out:
+Write a code example to define a Writer object that wraps text at 15 characters, cen- tres the text, sets the text to random casing, and directs the output to System.out. Which design pattern are you using?
+
+??
+ 

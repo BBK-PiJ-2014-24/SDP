@@ -19,7 +19,7 @@ The purpose of the Abstract Factory is to provide an interface for creating fami
 “In general, the details of object construction, such as instantiating and initialising the components that comprise the object, are kept within the object, often as part of its constructor.”
 Comment on this statement with reference to modularity and construction bloat.
 
-This quote violates a couple OOP principles, namely that a) the object should focus on just one task (Building an object internally as well as its primary role goes against this rule); and b) areas of code that vary and require flexibility should be encapsulated. Therefore encapsulating the build process into a separate object increases flexibility and reduces constructor bloat.  
+This quote violates a couple OOP SOLID principles, namely that a) the object should focus on a "Single Responsibility" (Building an object internally as well as its primary role goes against this rule); and b) areas of code that vary and require flexibility should be encapsulated and called used "Dependency Injection". Therefore encapsulating the build process into a separate object increases flexibility and reduces constructor bloat.  
 
 
 

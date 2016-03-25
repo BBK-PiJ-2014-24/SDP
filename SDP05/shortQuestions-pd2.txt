@@ -1,6 +1,28 @@
+1.
+(a) Briefly describe the Strategy Design Pattern?
+(b) When is it appropriate to use the Strategy Design Pattern?
+
+1a) The Strategy Pattern defines a family of behavoural algorhythms of a class, encapsulates them and makes them interchangable.
+
+b) It is appropriate when the behaviours of a class tend to vary or to give flexibilty for the class if new behavours arise in the future. 
+
+
+
+
 3. When is it appropriate to use the Abstract Factory design pattern?
 
 The purpose of the Abstract Factory is to provide an interface for creating families of related objects, without specifying concrete classes
+
+
+5.
+
+“In general, the details of object construction, such as instantiating and initialising the components that comprise the object, are kept within the object, often as part of its constructor.”
+Comment on this statement with reference to modularity and construction bloat.
+
+This quote violates a couple OOP principles, namely that a) the object should focus on just one task (Building an object internally as well as its primary role goes against this rule); and b) areas of code that vary and require flexibility should be encapsulated. Therefore encapsulating the build process into a separate object increases flexibility and reduces constructor bloat.  
+
+
+
 
 7.
 (a) What is the Facade Pattern?
@@ -13,4 +35,20 @@ b) Used to help simplify the interface of a busy API
 
 9. When should one make use of the Bridge Design Pattern?
 
-You should use Bridge when:  i) an inteface changes frequently; and ii) its implementations changes functionality as well. 
+You should use Bridge when:  i) an inteface changes frequently; and ii) its implementations changes functionality as well.
+
+
+
+11.
+(a) What is the Composite Pattern?
+(b) Under what conditions would you use a Composite Design Pattern?
+(c) What are the four participants of the Composite Design Pattern? 
+
+a) The Composite Pattern arranges objects into a tree structure.
+b) Use a composite if you want to compose objects in a hierarchial sructure and you want to traverse over the objects in a certain order.
+c) 
+	i) A Component Interface 
+	ii) A Composite Object which implements Component Interface and has methods to add Child Objects
+	iii) Leaves, which implements Components, but does not have methods to add children.
+	iv) The Client
+ 
